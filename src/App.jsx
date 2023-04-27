@@ -6,22 +6,34 @@ import Review from './Review';
 const App = () => {
   const [index, setIndex] = useState(0);
   console.log({ index });
+  const checkNumber = (number) => {
+    if (number > people.length - 1) {
+      return 0;
+    }
+    if (number < 0) {
+      return people.length - 1;
+    }
+    return number;
+  };
+
   const nextPerson = () => {
     setIndex((prev) => {
       const newIndex = prev + 1;
-      if (newIndex > people.length - 1) {
-        return 0;
-      }
-      return newIndex;
+      // if (newIndex > people.length - 1) {
+      //   return 0;
+      // }
+      // return newIndex;
+      return checkNumber(newIndex);
     });
   };
   const previousPerson = () => {
     setIndex((prev) => {
       const newIndex = prev - 1;
-      if (newIndex < 0) {
-        return people.length - 1;
-      }
-      return newIndex;
+      // if (newIndex < 0) {
+      //   return people.length - 1;
+      // }
+      // return newIndex;
+      return checkNumber(newIndex);
     });
   };
   return (
