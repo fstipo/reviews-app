@@ -3,34 +3,36 @@ import { useState } from 'react';
 import people from './data';
 import Review from './Review';
 
-// we will use modulus % operator
 const App = () => {
   const [index, setIndex] = useState(0);
-
-  console.log(1 % 4);
-  console.log(2 % 4);
-  console.log(3 % 4);
-  console.log(4 % 4);
-  console.log(10 % 4);
+  const checkNumber = (number) => {
+    if (number > people.length - 1) {
+      return 0;
+    }
+    if (number < 0) {
+      return people.length - 1;
+    }
+    return number;
+  };
 
   const nextPerson = () => {
     setIndex((prev) => {
-      const newIndex = (prev + 1) % people.length;
+      const newIndex = prev + 1;
       // if (newIndex > people.length - 1) {
       //   return 0;
       // }
       // return newIndex;
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
   const previousPerson = () => {
     setIndex((prev) => {
-      const newIndex = (prev - 1 + people.length) % people.length;
+      const newIndex = prev - 1;
       // if (newIndex < 0) {
       //   return people.length - 1;
       // }
       // return newIndex;
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
   const randomPerson = () => {
@@ -41,7 +43,7 @@ const App = () => {
     }
     // we have problem if we get last index
     // setIndex(randomIndex);
-    setIndex(randomIndex % people.length);
+    setIndex(checkNumber(randomIndex));
   };
 
   return (
