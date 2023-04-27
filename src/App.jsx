@@ -5,7 +5,6 @@ import Review from './Review';
 
 const App = () => {
   const [index, setIndex] = useState(0);
-  console.log({ index });
   const checkNumber = (number) => {
     if (number > people.length - 1) {
       return 0;
@@ -36,6 +35,17 @@ const App = () => {
       return checkNumber(newIndex);
     });
   };
+  const randomPerson = () => {
+    let randomIndex = Math.floor(Math.random() * people.length);
+    // sometimes we will get same index
+    if (randomIndex === index) {
+      randomIndex = index + 1;
+    }
+    // we have problem if we get last index
+    // setIndex(randomIndex);
+    setIndex(checkNumber(randomIndex));
+  };
+
   return (
     <main>
       <Review
@@ -43,6 +53,7 @@ const App = () => {
         people={people}
         nextPerson={nextPerson}
         previousPerson={previousPerson}
+        randomPerson={randomPerson}
       />
     </main>
   );

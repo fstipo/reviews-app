@@ -1,5 +1,11 @@
 import { FaQuoteRight, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-const Review = ({ index, people, nextPerson, previousPerson }) => {
+const Review = ({
+  index,
+  people,
+  nextPerson,
+  previousPerson,
+  randomPerson,
+}) => {
   const { name, job, image, text } = people.at(index);
 
   return (
@@ -23,6 +29,9 @@ const Review = ({ index, people, nextPerson, previousPerson }) => {
           <FaAngleRight />
         </button>
       </div>
+      <button className="btn btn-hipster" onClick={randomPerson}>
+        surprise me
+      </button>
     </article>
   );
 };
