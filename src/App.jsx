@@ -7,12 +7,6 @@ import Review from './Review';
 const App = () => {
   const [index, setIndex] = useState(0);
 
-  console.log(1 % 4);
-  console.log(2 % 4);
-  console.log(3 % 4);
-  console.log(4 % 4);
-  console.log(10 % 4);
-
   const nextPerson = () => {
     setIndex((prev) => {
       const newIndex = (prev + 1) % people.length;
