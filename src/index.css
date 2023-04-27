@@ -349,3 +349,7 @@ main {
 .next-btn:hover {
   color: var(--primary-500);
 }
+
+.disabled {
+  color: var(--primary-400);
+}
